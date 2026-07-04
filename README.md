@@ -27,7 +27,7 @@ Under the hood, it uses ANSI Device Status Reports (`\e[6n`) to track cursor pos
 
 > [!NOTE]
 > **Font Requirement:** This plugin uses a warning icon (``) from **Nerd Fonts**. If the icon doesn't display correctly (or appears as a blank square), please make sure you are using a patched terminal font (such as *FiraCode Nerd Font*, *JetBrainsMono Nerd Font*, etc.).
-
+-
 > [!NOTE]
 > ⚠️ **Kitty Terminal Required:** You are currently on the `for-kitty` branch. This version of the plugin is optimized **only** for the Kitty terminal. Do not use it with any other terminal emulator.
 ### Manual Installation
