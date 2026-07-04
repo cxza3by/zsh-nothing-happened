@@ -5,7 +5,6 @@ _silent_void_preexec() {
     local last_status=$?
     _silent_void_executed=1
 
-    # Делаем снимок текста видимого экрана ДО команды
     if _silent_void_remote_available; then
         _silent_void_snapshot="$(kitty @ get-text --extent screen 2>/dev/null)"
     else
@@ -23,16 +22,13 @@ _silent_void_precmd() {
     fi
     _silent_void_executed=0
 
-    # Если удалённое управление недоступно – просто выходим (не блокируем работу)
     if ! _silent_void_remote_available; then
         return $exit_code
     fi
 
-    # Снимок ПОСЛЕ команды
     local after_snapshot
     after_snapshot="$(kitty @ get-text --extent screen 2>/dev/null)"
 
-    # Сравниваем снимки — если они идентичны, вывода не было
     if [[ "$_silent_void_snapshot" == "$after_snapshot" ]]; then
         echo -e "\e[38;2;255;255;0m | Nothing Happened, or Program exited with Code $exit_code\e[0m"
     fi
@@ -40,9 +36,8 @@ _silent_void_precmd() {
     return $exit_code
 }
 
-# Проверка, что Kitty слушает удалённые команды
+
 _silent_void_remote_available() {
-    # Пробуем минимальный запрос – любая ошибка означает недоступность
     kitty @ get-text --extent screen 1>/dev/null 2>&1
 }
 
