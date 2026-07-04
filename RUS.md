@@ -1,4 +1,4 @@
-[README.md](https://github.com/cxza3by/zsh-nothing-happened/blob/master/README.md) is available in English.
+[README.md](https://github.com/cxza3by/zsh-nothing-happened/blob/main/README.md) is available in English.
 
 # zsh-nothing-happened
 
