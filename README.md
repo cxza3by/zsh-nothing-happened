@@ -9,20 +9,27 @@ Under the hood, it uses ANSI Device Status Reports (`\e[6n`) to track cursor pos
 ### Oh My Zsh
 1. Clone this repository into your custom plugins directory:
    ```bash
-   git clone https://github.com/Caxapok387/zsh-nothing-happened ~/.oh-my-zsh/custom/plugins/zsh-nothing-happened
+   git clone -b for-kitty --single-branch https://github.com/Caxapok387/zsh-nothing-happened ~/.oh-my-zsh/custom/plugins/zsh-nothing-happened
    ```
 
 3. Add `zsh-nothing-happened` to your plugins array in `~/.zshrc`:
    ```zsh
    plugins=(... zsh-nothing-happened)
    ```
-   
-4. Restart your terminal: 
+
+4. Add this to `~/.config/kitty/kitty.conf`:
+   ```
+   allow_remote_control yes
+   ```
+
+5. Restart your terminal: 
    `exec zsh` or if you are using OhMyZSH type `omz reload`
 
 > [!NOTE]
 > **Font Requirement:** This plugin uses a warning icon (``) from **Nerd Fonts**. If the icon doesn't display correctly (or appears as a blank square), please make sure you are using a patched terminal font (such as *FiraCode Nerd Font*, *JetBrainsMono Nerd Font*, etc.).
 
+> [!NOTE]
+> ⚠️ **Kitty Terminal Required:** You are currently on the `for-kitty` branch. This version of the plugin is optimized **only** for the Kitty terminal. Do not use it with any other terminal emulator.
 ### Manual Installation
 
 ###### If you don't use a plugin manager, just clone the repo anywhere and source it inside your `.zshrc`:

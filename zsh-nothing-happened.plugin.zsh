@@ -1,18 +1,21 @@
 _silent_void_executed=0
+_silent_void_snapshot=""
 
 _silent_void_preexec() {
-    # Сохраняем оригинальный статус, чтобы хук ничего не сбросил
-    local last_status=$? 
+    local last_status=$?
     _silent_void_executed=1
-    
-    # Запрашиваем позицию ДО выполнения команды (без ломающих таймаутов)
-    echo -ne "\e[6n" && read -sdR _silent_void_start_pos < /dev/tty
-    
+
+    # Делаем снимок текста видимого экрана ДО команды
+    if _silent_void_remote_available; then
+        _silent_void_snapshot="$(kitty @ get-text --extent screen 2>/dev/null)"
+    else
+        _silent_void_snapshot=""
+    fi
+
     return $last_status
 }
 
 _silent_void_precmd() {
-    # Сразу же перехватываем ЧЕСТНЫЙ код возврата команды пользователя
     local exit_code=$?
 
     if [ $_silent_void_executed -eq 0 ]; then
@@ -20,15 +23,27 @@ _silent_void_precmd() {
     fi
     _silent_void_executed=0
 
-    # Запрашиваем позицию ПОСЛЕ выполнения команды
-    echo -ne "\e[6n" && read -sdR _silent_void_end_pos < /dev/tty
+    # Если удалённое управление недоступно – просто выходим (не блокируем работу)
+    if ! _silent_void_remote_available; then
+        return $exit_code
+    fi
 
-    # Сравниваем реальные координаты
-    if [ "$_silent_void_start_pos" = "$_silent_void_end_pos" ]; then
+    # Снимок ПОСЛЕ команды
+    local after_snapshot
+    after_snapshot="$(kitty @ get-text --extent screen 2>/dev/null)"
+
+    # Сравниваем снимки — если они идентичны, вывода не было
+    if [[ "$_silent_void_snapshot" == "$after_snapshot" ]]; then
         echo -e "\e[38;2;255;255;0m | Nothing Happened, or Program exited with Code $exit_code\e[0m"
     fi
-    
+
     return $exit_code
+}
+
+# Проверка, что Kitty слушает удалённые команды
+_silent_void_remote_available() {
+    # Пробуем минимальный запрос – любая ошибка означает недоступность
+    kitty @ get-text --extent screen 1>/dev/null 2>&1
 }
 
 autoload -Uz add-zsh-hook
