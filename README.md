@@ -1,4 +1,4 @@
-Доступен [README.md](https://github.com/cxza3by/zsh-nothing-happened/blob/master/RUS.md) на русском.
+Доступен [README.md](https://github.com/cxza3by/zsh-nothing-happened/blob/main/RUS.md) на русском.
 
 # zsh-nothing-happened
 
