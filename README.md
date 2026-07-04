@@ -1,3 +1,5 @@
+Доступен [README.md](https://github.com/cxza3by/zsh-nothing-happened/blob/master/RUS.md) на русском.
+
 # zsh-nothing-happened
 
 A minimal and smart ZSH plugin that alerts you when a command executes completely silently (produces no stdout/stderr output). It displays the exit code and a warning icon, so you always know if a process finished successfully or silently failed.
@@ -18,7 +20,7 @@ Under the hood, it uses ANSI Device Status Reports (`\e[6n`) to track cursor pos
    ```
    
 4. Restart your terminal: 
-   `exec zsh` or if you are using OhMyZSH type `omz reload`
+   `exec zsh` or `omz reload`
 
 > [!NOTE]
 > **Font Requirement:** This plugin uses a warning icon (``) from **Nerd Fonts**. If the icon doesn't display correctly (or appears as a blank square), please make sure you are using a patched terminal font (such as *FiraCode Nerd Font*, *JetBrainsMono Nerd Font*, etc.).
