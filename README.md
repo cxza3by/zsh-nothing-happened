@@ -19,6 +19,10 @@ Under the hood, it uses ANSI Device Status Reports (`\e[6n`) to track cursor pos
    
 4. Restart your terminal: 
    `exec zsh` or if you are using OhMyZSH type `omz reload`
+
+> [!NOTE]
+> **Font Requirement:** This plugin uses a warning icon (``) from **Nerd Fonts**. If the icon doesn't display correctly (or appears as a blank square), please make sure you are using a patched terminal font (such as *FiraCode Nerd Font*, *JetBrainsMono Nerd Font*, etc.).
+
 ### Manual Installation
 
 ###### If you don't use a plugin manager, just clone the repo anywhere and source it inside your `.zshrc`:
