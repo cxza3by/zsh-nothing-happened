@@ -11,7 +11,7 @@ Under the hood, it uses ANSI Device Status Reports (`\e[6n`) to track cursor pos
 ### Oh My Zsh
 1. Clone this repository into your custom plugins directory:
    ```bash
-   git clone https://github.com/Caxapok387/zsh-nothing-happened ~/.oh-my-zsh/custom/plugins/zsh-nothing-happened
+   git clone https://github.com/cxza3by/zsh-nothing-happened ~/.oh-my-zsh/custom/plugins/zsh-nothing-happened
    ```
 
 3. Add `zsh-nothing-happened` to your plugins array in `~/.zshrc`:
