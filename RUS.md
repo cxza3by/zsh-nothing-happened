@@ -11,7 +11,7 @@
 ### Oh My Zsh
 1. Склонируйте этот репозиторий прямо в папку с вашими плагинами:
    ```bash
-   git clone https://github.com/Caxapok387/zsh-nothing-happened ~/.oh-my-zsh/custom/plugins/zsh-nothing-happened
+   git clone https://github.com/cxza3by/zsh-nothing-happened ~/.oh-my-zsh/custom/plugins/zsh-nothing-happened
    ```
 
 2. Добавьте `zsh-nothing-happened` в ваш список плагинов в `~/.zshrc`:
